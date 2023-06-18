@@ -65,7 +65,7 @@ public class PracticeFormPage extends BaseSeleniumPage {
         PageFactory.initElements(driver, this);
     }
 
-    public PracticeFormPage sentForm(String firstNameValue, String lastNameValue, String emailValue, String msisdnValue,
+    public SubmittingForm sentForm(String firstNameValue, String lastNameValue, String emailValue, String msisdnValue,
                                      String currentAddressValue) throws InterruptedException {
 
         firstName.sendKeys(firstNameValue);
@@ -81,9 +81,13 @@ public class PracticeFormPage extends BaseSeleniumPage {
         dateBirthChoose.click();
         hobby.click();
         currentAddress.sendKeys(currentAddressValue);
+        submitBtn.sendKeys(Keys.PAGE_DOWN);
+        Thread.sleep(2000);
+        submitBtn.click();
+        Thread.sleep(2000);
 
 
-        return this;
+        return new SubmittingForm();
     }
 
 }
