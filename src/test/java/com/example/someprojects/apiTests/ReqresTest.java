@@ -50,5 +50,35 @@ public class ReqresTest {
 
     }
 
+    @Test
+    public void checkBooksDemoQA(){
+        Specifications.installSpecification(Specifications.requestSpecification(ConfigProvider.URL_DEMOQA), Specifications.responseSpecification(200));
+
+        List<BookData> bookDataList = given()
+                .when()
+                .get("/BookStore/v1/Books")
+                .then().log().all()
+                .extract().body().jsonPath().getList("books", BookData.class);
+
+        bookDataList.forEach(x-> Assert.assertFalse(x.getDescription().isEmpty()));
+
+    }
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
