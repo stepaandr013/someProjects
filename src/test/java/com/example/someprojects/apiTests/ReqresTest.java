@@ -64,6 +64,20 @@ public class ReqresTest {
 
     }
 
+    @Test
+    public void checkUserCreation(){
+        Specifications.installSpecification(Specifications.requestSpecification(ConfigProvider.URL_API), Specifications.responseSpecification(201));
+
+        UserCreation userCreation = new UserCreation("morpheus", "leader");
+
+        UserCreationResponse userCreationResponse = given()
+                .body(userCreation)
+                .post("/api/users")
+                .then().log().all()
+                .extract().as(UserCreationResponse.class);
+
+    }
+
 
 }
 
