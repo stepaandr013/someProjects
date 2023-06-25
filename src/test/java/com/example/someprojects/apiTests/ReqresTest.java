@@ -1,9 +1,13 @@
 package com.example.someprojects.apiTests;
 
 import com.example.someprojects.readProperties.ConfigProvider;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.Assert;
 import org.junit.Test;
 
+import javax.sound.midi.Soundbank;
+import java.time.Instant;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -75,6 +79,10 @@ public class ReqresTest {
                 .post("/api/users")
                 .then().log().all()
                 .extract().as(UserCreationResponse.class);
+
+        Assert.assertTrue(userCreationResponse.getName().equals(userCreation.getName()));
+        Assert.assertTrue(userCreationResponse.getJob().equals(userCreation.getJob()));
+        Assert.assertFalse(userCreationResponse.getId().isEmpty());
 
     }
 

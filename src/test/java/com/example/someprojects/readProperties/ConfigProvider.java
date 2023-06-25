@@ -15,5 +15,6 @@ public interface ConfigProvider {
     String URL = readConfig().getString("url");
     String URL_DEMOQA = readConfig().getString("url_demoqa");
     String URL_API = readConfig().getString("url_api");
+    String URL_CACTUS = readConfig().getString("url_cactus");
 
 }

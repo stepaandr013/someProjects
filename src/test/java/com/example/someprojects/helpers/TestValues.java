@@ -8,4 +8,5 @@ public class TestValues {
     public static String LAST_NAME = "Test_Test_Test";
     public static String MSISDN = "0079317102";
     public static String ADDRESS = "Eminescu-23";
+    public static String SEARCH_VALUE = "iphone 14 pro 128";
 }
